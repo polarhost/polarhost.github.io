@@ -4,13 +4,11 @@ body {
 
 .btn {
   background-color: #05c5ff;
-  border: 2px solid #05c5ff;
+  border: 50%;
   border-radius: 8px;
-  width: 19px;
-  height: 19px;
   text-align: center;
-  font-size: 6px;
   font-family: sans-serif;
+  display: flex;
 }
 
 .btn:hover {
