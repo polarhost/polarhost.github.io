@@ -4,11 +4,12 @@ body {
 
 .btn {
   background-color: #05c5ff;
-  border: 50%;
+  border-width: 6%;
+  border-height: 6%;
   border-radius: 8px;
   text-align: center;
   font-family: sans-serif;
-  display: flex;
+  text-decoration: none;
 }
 
 .btn:hover {
