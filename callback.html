@@ -1,0 +1,34 @@
+<script>
+    // Get the URL fragment containing the access token
+    const hash = window.location.hash;
+
+    // Extract the access token from the URL fragment
+    const params = new URLSearchParams(hash.substring(1));
+    const accessToken = params.get('access_token');
+
+    if (accessToken) {
+        // Use the access token to fetch user data or redirect to another page
+        fetchUserInfo(accessToken);
+    } else {
+        console.error('Access token not found');
+    }
+
+    // Function to fetch user information from Discord using the access token
+    function fetchUserInfo(token) {
+        fetch('https://discord.com/api/users/@me', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Display user info or redirect to another page
+            console.log(data);
+            // Example: Redirect to a dashboard
+            window.location.href = '/dashboard';
+        })
+        .catch(error => {
+            console.error('Error fetching user info:', error);
+        });
+    }
+</script>
