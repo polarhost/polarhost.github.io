@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolarHost • Login</title>
+    <!-- Link to Google Font: Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #303030; /* Snow-like color */
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 500px;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #007BFF; /* Main blue color */
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: white;
+            margin: 20px 0;
+        }
+
+        .btn-discord {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1rem;
+            color: white;
+            background-color: #5865F2; /* Discord blue */
+            border: none;
+            border-radius: 10px; /* Rounded corners */
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+        }
+
+        .btn-discord:hover {
+            background-color: #4658c9;
+            transform: scale(1.05);
+        }
+
+        .btn-discord img {
+            width: 25px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn-discord {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login with Discord</h1>
+        <p>Sign in to access exclusive features and manage your account.</p>
+        <a href="https://discord.com/api/oauth2/authorize?client_id=1297105461182726197&redirect_uri=https://polarhost.github.io/callback&response_type=code&scope=identify" class="btn-discord">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord Logo">
+            Login with Discord
+        </a>
+    </div>
+</body>
+</html>
