@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polarhost</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>PolarHost - Simplified Hosting Solutions</title>
     <!-- Link to Google Font: Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -12,22 +12,23 @@
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background-color: #303030; /* Snow-like color */
-            color: #000;
+            background-color: #303030;
+            color: #FFF;
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
         }
 
+        /* Container */
         .container {
             text-align: center;
-            max-width: 1000px;
             padding: 20px;
             animation: fadeIn 1.5s ease-in-out;
         }
 
+        /* Headings */
         h1 {
             font-size: 3rem;
             color: #007BFF; /* Main blue color */
@@ -37,19 +38,20 @@
 
         p {
             font-size: 1.2rem;
-            color: white;
+            color: #FFF;
             margin: 20px 0;
             font-weight: 400;
         }
 
+        /* Buttons */
         .btn {
             display: inline-block;
             padding: 15px 30px;
             font-size: 1rem;
-            color: white;
+            color: #FFF;
             background-color: #007BFF;
             border: none;
-            border-radius: 10px; /* Round corners */
+            border-radius: 10px; /* Rounded corners */
             text-decoration: none;
             transition: transform 0.3s, background-color 0.3s;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -59,6 +61,64 @@
         .btn:hover {
             background-color: #0056b3;
             transform: scale(1.05);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: #FFF;
+            margin: 5px;
+            transition: 0.4s;
+        }
+
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background-color: #007BFF;
+            border-radius: 10px;
+            padding: 10px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0056b3;
+        }
+
+        /* Toggle Menu */
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .hamburger.active + .nav-links {
+            display: block;
         }
 
         /* Responsive Design */
@@ -74,6 +134,10 @@
             .btn {
                 padding: 12px 24px;
                 font-size: 0.9rem;
+            }
+
+            .hamburger {
+                display: block;
             }
         }
 
@@ -100,10 +164,35 @@
     </style>
 </head>
 <body>
+    <!-- Hamburger Menu -->
+    <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Pricing</a>
+    </div>
+
+    <!-- Main Content -->
     <div class="container">
         <h1>Welcome to PolarHost!</h1>
-        <p>We're glad to have you here. Discover amazing features and get started on your hosting journey.</p>
-        <a href="login" class="btn">Get Started</a>
+        <p>Get access to simplified, powerful hosting with unmatched features at affordable prices. Whether you're a developer or running a website, PolarHost offers seamless integration, fast support, and top-tier performance. Start now and get the first month free on us!</p>
+        <a href="#" class="btn">Get Started</a>
     </div>
+
+    <script>
+        // Toggle Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
