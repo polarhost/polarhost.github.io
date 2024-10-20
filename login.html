@@ -64,6 +64,11 @@
             vertical-align: middle;
         }
 
+        .logged-in-message {
+            color: white;
+            margin: 20px 0;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
@@ -92,13 +97,45 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="login-container">
         <h1>Login with Discord</h1>
         <p>Sign in to access exclusive features and manage your account.</p>
-        <a href="https://discord.com/oauth2/authorize?client_id=1297105461182726197&response_type=code&redirect_uri=https%3A%2F%2Fpolarbackendx.onrender.com%2Fcallback&scope=identify+guilds.join+email" class="btn-discord">
+        <a id="discord-login" href="https://discord.com/oauth2/authorize?client_id=1297105461182726197&response_type=code&redirect_uri=https%3A%2F%2Fpolarbackendx.onrender.com%2Fcallback&scope=identify+guilds.join+email" class="btn-discord">
             <img src="https://i.postimg.cc/zfBW2nd8/Png-Item-1083749.png" alt="Discord Logo">
             Login with Discord
         </a>
+        <p class="logged-in-message" id="logged-in-message" style="display: none;">You are already logged in!</p>
     </div>
+
+    <script>
+        // Check for login status
+        window.onload = function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const loginContainer = document.getElementById('login-container');
+            const discordLoginButton = document.getElementById('discord-login');
+            const loggedInMessage = document.getElementById('logged-in-message');
+
+            if (isLoggedIn) {
+                // Show message if logged in
+                discordLoginButton.style.display = 'none';
+                loggedInMessage.style.display = 'block';
+                // Optionally, redirect to another page or display further information
+                // window.location.href = "dashboard.html"; // Uncomment to redirect
+            }
+        }
+
+        // Log out after a week (604800000 ms = 1 week)
+        const logoutAfterOneWeek = () => {
+            const lastActive = localStorage.getItem('lastActive');
+            const now = Date.now();
+
+            if (lastActive && (now - lastActive) > 604800000) { // 1 week in milliseconds
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('lastActive');
+            }
+        }
+
+        logoutAfterOneWeek();
+    </script>
 </body>
 </html>
